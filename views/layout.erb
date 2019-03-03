@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>SDGsプロジェクト</title>
+<link rel="stylesheet" href="/assets/css/star.css">
+</head>
+
+<body>
+<nav class="center-hrizontal">
+<a href="/">トップページ</a>
+<% unless session[:user] %>
+
+<a href="/signup">新規登録</a>
+<% else %>
+
+<a href="/home">ホーム</a>
+<a href="/actnew">投稿</a>
+<a href="/signout">ログアウト</a>
+<% end %>
+</nav>
+
+<main>
+<%= yield %>
+</main>
+
+</body>
+</html>
