@@ -48,12 +48,12 @@ end
 #homeにいく。
 get '/home' do
   @categories = Category.all
-  if current_user.nil?
+  if current_user.nil? then
     @quests = Quest.none
-  elsif params[:category].nil?
+  elsif params[:category].nil? then
     @quests = current_user.quests
   else
-    @quests = Category.find(params[:list]).quests.where(user_id: current_user.id)
+    @quests = Category.find(params[:category]).quests.where(user_id: current_user.id)
   end
   erb :home
 end
@@ -64,7 +64,7 @@ get '/actnew' do
 end
 
 post '/new' do
-
+  category = Category.find(params[:category])
   Quest.create(
     title: params[:title],
     client: params[:client],
