@@ -8,13 +8,65 @@
 <body>
 <h1><%= current_user.name %>さんの部屋</h1>
 
+<h3>グラフ</h3>
+<div class="chart-container" style="position: relative; height:60vh; width:30vw">
+<canvas id="myChart" width="500" height="500"></canvas>
+</div>
+<script>
+
+var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 30, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+
 <div>
   <ul>
     <li><a href="/home">全て</a></li>
+    <li><a href="/quests/done">done</a></li>
     <% @categories.each do |c| %>
-    <li><a href="/?category=<%= c.id %>"><%= c.categoname %></a></li>
+    <li><a href="/category/<%= c.id %>"><%= c.categoname %></a></li>
     <% end %>
   </ul>
+
+<% if @category_name.present? %>
+  <h2><%= @category_name %></h2>
+<% end %>
+
+
 </div>
   <div style="line-height: 0.5em">
     <% @quests.each do |t| %>
@@ -26,8 +78,19 @@
         <p>詳細:<%= t.details %></p>
         <p>難易度:<span class="<%= t.star %>"></span></p>
         <p>投稿者:<%= t.user_name %></p>
+        <span><%= t.good %></span>
+        <td>
+        <% unless t.completed %>
+          <form action="/quests/<%= t.id %>/done" method="post">
+            <input type="submit" value="Done">
+          </form>
+        <% else %>
+         Done
+        <% end %>
+        </td>
         <p><a href="/new/delete/<%= t.id%>">削除</a></p>
       </div>
     <% end %>
   </div>
 </body>
+</html>

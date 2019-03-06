@@ -73,7 +73,9 @@ post '/new' do
     details: params[:details],
     star: params[:star],
     user_id: current_user.id,
-    user_name: current_user.name)
+    user_name: current_user.name,
+    category_id: category.id,
+    good: 0)
 
 redirect '/home'
 end
@@ -82,4 +84,36 @@ end
 get '/new/delete/:id' do
   Quest.find(params[:id]).delete
   redirect '/home'
+end
+
+get '/chart' do
+  erb :chart
+end
+
+post '/quests/:id/done' do
+  quest = Quest.find(params[:id])
+  quest.completed = true
+  quest.save
+
+   quest = Quest.find(params[:id])
+  good = quest.good
+  quest.update({
+    good: good + 1
+  })
+
+  redirect '/home'
+end
+
+get '/category/:id' do #カテゴリーごとに表示するget
+  @categories = Category.all
+  @category = Category.find(params[:id])
+  @category_name = @category.categoname
+  @quests = @category.quests
+  erb :home
+end
+
+get '/quests/done' do
+  @categories = Category.all
+  @quests = current_user.quests.where(completed: true)
+  erb :home
 end
