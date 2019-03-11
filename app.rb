@@ -55,6 +55,8 @@ get '/home' do
   else
     @quests = Category.find(params[:category]).quests.where(user_id: current_user.id)
   end
+   @exist = current_user.quests.count
+   @sigoto = Quest.where(good: '1' , categoname: "仕事").count
   erb :home
 end
 

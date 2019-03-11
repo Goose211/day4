@@ -7,21 +7,23 @@
 
 <body>
 <h1><%= current_user.name %>さんの部屋</h1>
-
+<h1>トータルポイント数  <%= @exist %></h1>
+<h1>活動数  <%= @sigoto %></h1>
 <h3>グラフ</h3>
 <div class="chart-container" style="position: relative; height:60vh; width:30vw">
 <canvas id="myChart" width="500" height="500"></canvas>
 </div>
+ <% @quests.each do |t| %>
 <script>
-
 var ctx = document.getElementById("myChart").getContext('2d');
+
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: [],
         datasets: [{
             label: '# of Votes',
-            data: [12, 30, 3, 5, 2, 3],
+            data: [],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -52,6 +54,7 @@ var myChart = new Chart(ctx, {
     }
 });
 </script>
+<% end %>
 
 <div>
   <ul>
