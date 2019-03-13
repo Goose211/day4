@@ -23,10 +23,10 @@ var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: ["全ての投稿", "DOne数", "Yellow", "Green", "Purple", "Orange"],
         datasets: [{
             label: '# of Votes',
-            data: [1,1],
+            data: [<%= @exist %>,<%= @dones %>],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
