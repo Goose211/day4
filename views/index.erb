@@ -1,15 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/assets/css/stylesheet.css">
+<title>GYIポータルサイト</title>
+</head>
 
-<section class="first-view center-vertical">
-<h1>SDGsプロジェクト</h1>
-<div>
-<% unless session[:user] %>
-	    <form action="/signin" method="POST" class="form-inline" style="display:inline-flex; height: 18px;">
-        <input name="name" placeholder="ユーザー名"><br>
-        <input type="password" name="password" placeholder="パスワード"><br>
-        <input type="submit" value="ログイン"><br>
-      </form>
+<body id="index">
+
+<div class="content">
+<h1>Global <br>Youth<br>Innovators</h1>
+<p>このサイトは、日々の活動を配信したり、活動を共有するサイトです！！</p>
+
+  <% unless session[:user] %>
+	  <form action="/signin" method="POST" class="form-inline" style="display:inline-flex; height: 36px;">
+      <input name="name" placeholder="ユーザー名"><br>
+      <input type="password" name="password" placeholder="パスワード"><br>
+      <input type="submit" value="ログイン"><br>
+    </form>
+
+
     </div>
     <% else %>
 
   <% end %>
+
 </section>
+
+</body>
+</html>

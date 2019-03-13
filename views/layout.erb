@@ -3,18 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <title>SDGsプロジェクト</title>
+
 <link rel="stylesheet" href="/assets/css/star.css">
 <script src="/assets/js/Chart.js"></script>
 </head>
 
 <body>
 <nav class="center-hrizontal">
-<a href="/">トップページ</a>
 <% unless session[:user] %>
-
+<div align="right">
 <a href="/signup">新規登録</a>
-<% else %>
+</div>
 
+<% else %>
+<a href="/top">top</a>
 <a href="/home">ホーム</a>
 <a href="/actnew">投稿</a>
 <a href="/chart">チャート</a>

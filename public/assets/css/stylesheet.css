@@ -1,0 +1,122 @@
+#index {
+  background-image: url("/assets/img/top5.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+}
+
+#top {
+  background-image: url("/assets/img/cafe.jpg");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center top;
+}
+
+
+#index h1 {
+  font-size: 100px;
+  line-height:  1;
+  color: #ffffff;
+  font-family: 'Bitter' , serif;
+
+}
+#index.content {
+  margin-top: 200px;
+}
+
+#index p {
+  font-size: 20px;
+  color: #ffffff;
+
+}
+
+#menu{
+  clear: both;
+  background-color: #ffffff00;
+  margin-top: 100px;
+  opacity: 1.0;
+  font-size: 20px;
+
+}
+
+#wrap{
+  clear: both;
+  background-color: #ffffff;
+  margin-top: 1px;
+  opacity: 1.0;
+}
+
+
+.left{
+  padding-right: 30px;
+  text-align: left;
+}
+
+.pagetop {
+	color: rgb(32, 29, 29);
+	background-color: rgba(0,0,0,0.3);
+	text-decoration: none;
+	display: none;
+	position: fixed;
+	bottom: 1rem;
+	right: 1rem;
+	font-size: 1.5rem;
+	width: 3.3rem;
+	height: 3.3rem;
+	line-height: 3.3rem;
+	border-radius: 3.3rem;
+	text-align: center;
+	cursor: pointer;
+}
+
+.pagetop:hover {
+	color: #fff !important;
+	background-color: #ed702b;
+	text-decoration: none;
+}
+
+
+
+.link_button {
+  font-weight: bold;/*太字に*/
+  text-decoration: none;/*下線消す*/
+  background: rgb(247, 167, 48);/*背景を水色に*/
+  color:white;/*文字を白に*/
+  padding:5px 10px;/*内側の余白*/
+  border-radius: 20px;/*角を丸くする*/
+  font-family: 'Avenir','Arial';/*フォントをいい感じに*/
+}
+
+/*以下カーソルを当てたとき*/
+.link_button:hover {
+  background: orangered;/*背景色をシルバーに*/
+  text-decoration: none;/*下線を消す*/
+}
+
+/*以下訪問済みのデザイン*/
+.link_button:visited {
+  color: white;/*文字をグレイに*/
+}
+
+.post {
+  margin: 20px;
+  padding: 10px;
+  width: 200px;
+  border-radius: 5px;
+  word-break: break-all;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
+}
+
+.center-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.center-hrizontal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}

@@ -2,13 +2,16 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="/assets/css/stylesheet.css">
 <title>個人画面</title>
+
 </head>
 
 <body>
 <h1><%= current_user.name %>さんの部屋</h1>
 <h1>トータルポイント数  <%= @exist %></h1>
-<h1>活動数  <%= @sigoto %></h1>
+<h1>Done数  <%= @dones %></h1>
+
 <h3>グラフ</h3>
 <div class="chart-container" style="position: relative; height:60vh; width:30vw">
 <canvas id="myChart" width="500" height="500"></canvas>
@@ -20,10 +23,10 @@ var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: [],
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
         datasets: [{
             label: '# of Votes',
-            data: [],
+            data: [1,1],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -38,7 +41,7 @@ var myChart = new Chart(ctx, {
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
                 'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(255, d159, 64, 1)'
             ],
             borderWidth: 1
         }]

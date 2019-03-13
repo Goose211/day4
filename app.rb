@@ -29,7 +29,7 @@ if @user.persisted?
   session[:user] = @user.id
 end
 
-redirect '/'
+redirect '/home'
 end
 
 post '/signin' do
@@ -37,13 +37,19 @@ user = User.find_by(name: params[:name])
   if user && user.authenticate(params[:password])
     session[:user] = user.id
   end
-  redirect '/'
+  redirect '/home'
 end
 
 get '/signout' do
   session[:user] = nil
   redirect '/'
 end
+
+get '/top' do
+    @quests = Quest.all.order("created_at desc")
+  erb :top
+end
+
 
 #homeにいく。
 get '/home' do
@@ -56,7 +62,9 @@ get '/home' do
     @quests = Category.find(params[:category]).quests.where(user_id: current_user.id)
   end
    @exist = current_user.quests.count
-   @sigoto = Quest.where(good: '1' , categoname: "仕事").count
+   @dones = current_user.quests.where(good: '1').count
+
+
   erb :home
 end
 
@@ -89,6 +97,8 @@ get '/new/delete/:id' do
 end
 
 get '/chart' do
+  @exist = current_user.quests.count
+  @sigoto = current_user.quests.where(good: '1').count
   erb :chart
 end
 
@@ -118,4 +128,9 @@ get '/quests/done' do
   @categories = Category.all
   @quests = current_user.quests.where(completed: true)
   erb :home
+end
+
+get '/free' do
+   @quests = Quest.all.order("created_at desc")
+  erb :free
 end

@@ -3,7 +3,6 @@
 </div>
 
 <script>
-
 var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
@@ -11,7 +10,7 @@ var myChart = new Chart(ctx, {
         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
         datasets: [{
             label: '# of Votes',
-            data: ["<%= @exist %>", 30, 3, 5, 2, 3],
+            data: ["<%= @exist %>","<%= @sigoto %>", 3, 5, 2,],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',

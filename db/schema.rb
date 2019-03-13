@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_06_170232) do
+ActiveRecord::Schema.define(version: 2019_03_13_150315) do
 
   create_table "categories", force: :cascade do |t|
     t.string "categoname"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2019_03_06_170232) do
     t.boolean "completed"
     t.date "due_date"
     t.integer "good", default: 0
+    t.string "genre"
   end
 
   create_table "users", force: :cascade do |t|
