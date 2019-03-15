@@ -63,6 +63,8 @@ get '/home' do
   end
    @exist = current_user.quests.count
    @dones = current_user.quests.where(good: '1').count
+   @p =  current_user.quests.where(good: '1', category_id: '1').count
+   @s = current_user.quests.where(good: '1', category_id: '2').count
 
 
   erb :home

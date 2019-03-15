@@ -9,12 +9,15 @@
 
 <body>
 <h1><%= current_user.name %>さんの部屋</h1>
-<h1>トータルポイント数  <%= @exist %></h1>
+<h1>全ての投稿  <%= @exist %></h1>
 <h1>Done数  <%= @dones %></h1>
+<h1>プライベートdone <%= @p%></h1>
+<h1>仕事done <%= @s %></h1>
+
 
 <h3>グラフ</h3>
 <div class="chart-container" style="position: relative; height:60vh; width:30vw">
-<canvas id="myChart" width="500" height="500"></canvas>
+<canvas id="myChart" width="2000" height="2000"></canvas>
 </div>
  <% @quests.each do |t| %>
 <script>
@@ -23,10 +26,10 @@ var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ["全ての投稿", "DOne数", "Yellow", "Green", "Purple", "Orange"],
+        labels: ["全ての投稿", "DOne数", "プライベート", "仕事", "Purple", "Orange","Orange","Orange","Orange","Orange","Orange","Orange","Orange","Orange","Orange",],
         datasets: [{
             label: '# of Votes',
-            data: [<%= @exist %>,<%= @dones %>],
+            data: [<%= @exist %>,<%= @dones %>,<%= @p%>,<%= @s %>,12],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',

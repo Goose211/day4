@@ -1,3 +1,17 @@
+
+nav {
+  height: 100px;
+  width: 100%;
+  background-image: url("/assets/img/top5.jpg");
+
+}
+nav a {
+  font-family: "Righteous", cursive;
+  color: white;
+  text-decoration: none;
+  margin-left: 15px;
+}
+
 #index {
   background-image: url("/assets/img/top5.jpg");
   background-size: cover;
@@ -5,15 +19,6 @@
   background-attachment: fixed;
   background-position: center center;
 }
-
-#top {
-  background-image: url("/assets/img/cafe.jpg");
-  background-size: 100% auto;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center top;
-}
-
 
 #index h1 {
   font-size: 100px;
@@ -32,10 +37,12 @@
 
 }
 
+
+/*投稿ボックス*/
 #menu{
   clear: both;
   background-color: #ffffff00;
-  margin-top: 100px;
+  margin-top: 0px;
   opacity: 1.0;
   font-size: 20px;
 
@@ -43,7 +50,7 @@
 
 #wrap{
   clear: both;
-  background-color: #ffffff;
+  background-color: #e68517;
   margin-top: 1px;
   opacity: 1.0;
 }
@@ -119,4 +126,21 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.body {
+  margin: 0;
+  padding: 0;
+  background-color: #cccccccc
+}
+
+div#imgContainer {
+  background-size:auto 50px;
+  position:relative;
+  overflow:hidden;
+}
+div#imgContainer img {
+  position:relative;
+  left:-30px;
+  top:-550px;
 }
