@@ -10,24 +10,43 @@
 
 <body>
 
-<nav class="center-hrizontal">
+
 <% unless session[:user] %>
 <div align="right">
 <a href="/signup">新規登録</a>
 </div>
-
 <% else %>
-<a href="/top">top</a>
-<a href="/home">ホーム</a>
-<a href="/actnew">投稿</a>
-<a href="/chart">チャート</a>
-<a href="/signout">ログアウト</a>
+
+<header class="siteHeader">
+  <div class="headerBg">
+  <nav class="headerMenu">
+  <ul>
+    <li><a href="/signout">logout</a></li>
+
+    <li><a href="/actnew">投稿</a></li>
+
+ <li><a href="/home">mypage</a></li>
+  </ul>
+  <div class="siteTitle">
+    <h1>&emsp;</h1>
+  </div>
+
+  </nav>
+    <nav class="mainMenu">
+      <ul>
+        <li><a href="/top">クエスト</a></li>
+        <li><a href="/free">個人投稿</a></li>
+        <li><a href="/category/recommend">メンバー</a></li>
+      </ul>
+    </nav>
+     <div class="headerButton"><span class="sb-toggle-right"></span></div>
+  </div>
+</header>
+
 <% end %>
 </nav>
-
 <main>
 <%= yield %>
 </main>
-
 </body>
 </html>

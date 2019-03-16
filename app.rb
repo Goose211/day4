@@ -99,8 +99,20 @@ get '/new/delete/:id' do
 end
 
 get '/chart' do
-  @exist = current_user.quests.count
-  @sigoto = current_user.quests.where(good: '1').count
+@categories = Category.all
+  if current_user.nil? then
+    @quests = Quest.none
+  elsif params[:category].nil? then
+    @quests = current_user.quests
+  else
+    @quests = Category.find(params[:category]).quests.where(user_id: current_user.id)
+  end
+   @exist = current_user.quests.count
+   @dones = current_user.quests.where(good: '1').count
+   @p =  current_user.quests.where(good: '1', category_id: '1').count
+   @s = current_user.quests.where(good: '1', category_id: '2').count
+
+
   erb :chart
 end
 

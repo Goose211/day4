@@ -1,17 +1,24 @@
-<body>
-<div class="chart-container" style="position: relative; height:30vh; width:30vw">
-<canvas id="myChart" width="400" height="400"></canvas>
-</div>
+<h1>全ての投稿  <%= @exist %></h1>
+<h1>Done数  <%= @dones %></h1>
+<h1>プライベートdone <%= @p%></h1>
+<h1>仕事done <%= @s %></h1>
 
+
+<h3>グラフ</h3>
+<div class="chart-container" style="position: relative; height:60vh; width:30vw">
+<canvas id="myChart" width="2000" height="2000"></canvas>
+</div>
+ <% @quests.each do |t| %>
 <script>
 var ctx = document.getElementById("myChart").getContext('2d');
+
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: ["全ての投稿", "DOne数", "プライベート", "仕事", "Purple", "Orange","Orange","Orange","Orange","Orange","Orange","Orange","Orange","Orange","Orange",],
         datasets: [{
             label: '# of Votes',
-            data: ["<%= @exist %>","<%= @sigoto %>", 3, 5, 2,],
+            data: [<%= @exist %>,<%= @dones %>,<%= @p%>,<%= @s %>,12],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -26,7 +33,7 @@ var myChart = new Chart(ctx, {
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
                 'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(255, d159, 64, 1)'
             ],
             borderWidth: 1
         }]
@@ -42,4 +49,5 @@ var myChart = new Chart(ctx, {
     }
 });
 </script>
-</body>
+<% end %>
+</div>
