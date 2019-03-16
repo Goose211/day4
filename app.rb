@@ -29,7 +29,7 @@ if @user.persisted?
   session[:user] = @user.id
 end
 
-redirect '/home'
+redirect '/'
 end
 
 post '/signin' do
@@ -37,7 +37,7 @@ user = User.find_by(name: params[:name])
   if user && user.authenticate(params[:password])
     session[:user] = user.id
   end
-  redirect '/home'
+  redirect '/'
 end
 
 get '/signout' do
