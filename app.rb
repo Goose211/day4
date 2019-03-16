@@ -61,12 +61,6 @@ get '/home' do
   else
     @quests = Category.find(params[:category]).quests.where(user_id: current_user.id)
   end
-   @exist = current_user.quests.count
-   @dones = current_user.quests.where(good: '1').count
-   @p =  current_user.quests.where(good: '1', category_id: '1').count
-   @s = current_user.quests.where(good: '1', category_id: '2').count
-
-
   erb :home
 end
 
