@@ -42,7 +42,7 @@ end
 
 get '/signout' do
   session[:user] = nil
-  redirect '/'
+  erb :/
 end
 
 get '/top' do
@@ -95,7 +95,7 @@ end
 
 get '/new/delete/:id' do
   Quest.find(params[:id]).delete
-  redirect '/home'
+  erb :home
 end
 
 get '/chart' do
