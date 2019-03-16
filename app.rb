@@ -87,6 +87,7 @@ redirect '/home'
 end
 
 
+
 get '/new/delete/:id' do
   Quest.find(params[:id]).delete
   erb :home
