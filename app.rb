@@ -42,7 +42,7 @@ end
 
 get '/signout' do
   session[:user] = nil
-  erb :/
+  erb :index
 end
 
 get '/top' do
