@@ -73,14 +73,19 @@ post '/new' do
   category = Category.find(params[:category])
   Quest.create(
     title: params[:title],
+    title2: params[:title2],
     client: params[:client],
     condition: params[:condition],
     member: params[:member],
     details: params[:details],
+    details2: params[:details2],
     star: params[:star],
     user_id: current_user.id,
     user_name: current_user.name,
     category_id: category.id,
+    img2: params[:img2],
+    day: params[:day],
+    day2: params[:day2],
     good: 0)
 
 redirect '/home'
@@ -90,7 +95,7 @@ end
 
 get '/new/delete/:id' do
   Quest.find(params[:id]).delete
-  erb :home
+  erb :index
 end
 
 get '/chart' do
@@ -115,14 +120,14 @@ get '/chart' do
    @camp = current_user.quests.where(good: '1', category_id: '9').count
    @ivent = current_user.quests.where(good: '1', category_id: '10').count
    @study = current_user.quests.where(good: '1', category_id: '11').count
-   @product = current_user.quests.where(good: '1', category_id: '13').count
-   @newss = current_user.quests.where(good: '1', category_id: '14').count
-   @book = current_user.quests.where(good: '1', category_id: '15').count
-   @english = current_user.quests.where(good: '1', category_id: '16').count
-   @movie = current_user.quests.where(good: '1', category_id: '17').count
-   @app = current_user.quests.where(good: '1', category_id: '18').count
-   @web = current_user.quests.where(good: '1', category_id: '19').count
-   @poster = current_user.quests.where(good: '1', category_id: '20').count
+   @product = current_user.quests.where(good: '1',category_id: '13').count
+   @newss = current_user.quests.where(good: '1',category_id: '14').count
+   @book = current_user.quests.where(good: '1',category_id: '15').count
+   @english = current_user.quests.where(good: '1',category_id: '16').count
+   @movie = current_user.quests.where(good: '1',category_id: '17').count
+   @app = current_user.quests.where(good: '1',category_id: '18').count
+   @web = current_user.quests.where(good: '1',category_id: '19').count
+   @poster = current_user.quests.where(good: '1',category_id: '20').count
 
 
 
@@ -140,7 +145,6 @@ post '/quests/:id/done' do
   quest.update({
     good: good + 1
   })
-
   redirect '/home'
 end
 
@@ -156,9 +160,4 @@ get '/quests/done' do
   @categories = Category.all
   @quests = current_user.quests.where(completed: true)
   erb :home
-end
-
-get '/free' do
-   @quests = Quest.all.order("created_at desc")
-  erb :free
 end

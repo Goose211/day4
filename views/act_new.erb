@@ -3,58 +3,113 @@
 <head>
 <meta charset="UTF-8">
 <title>個人画面</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
 
 <section>
-<h1>クエスト</h1>
-<div>
-<form action="/new" method="post">
-  <input type="text" name="title" placeholder="タイトル">
 
-  <input type="text" name="client" placeholder="依頼主">
-  <input type="text" name="condition" placeholder="条件">
-  <input type="text" name="member" placeholder="参加者">
-  <input type="text" name="details" placeholder="詳細">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+      <div class="row">
+      <h1>Quest</h1>
+        <div class="panel panel-default">
+          <div class="panel-heading">クエスト投稿</div>
+            <div class="panel-body">
+              <form action="/new" method="post">
+                <div class="form-group">
+                <b>タイトル入力:</b><input type="text" class="form-control" name="title" placeholder="タイトル">
+                </div>
+
+                <b>日時：</b><input type="string" name="day" placeholder="日時：3/24"><br>
+                <b>内容：</b><input type="text" name="condition" placeholder="イベントの開催"><br>
 
 
-  <div class="form-group">
-    難易度<br>
-    <div class="wrap">
-    <select name="star">
-    <option value="rate rate0">0</option>
-    <option value="rate rate1">★</option>
-    <option value="rate rate1-5">★0.5</option>
-    <option value="rate rate2">★★</option>
-    <option value="rate rate2-5">★★0.5</option>
-    <option value="rate rate3">★★★</option>
-    <option value="rate rate3-5">★★★0.5</option>
-    <option value="rate rate4">★★★★</option>
-    <option value="rate rate4-5">★★★★0.5</option>
-    <option value="rate rate5">★★★★★</option>
-    </select>
+                      <div class="form-group">
+                        <b>難易度：</b>
+                        <select name="star">
+                        <option value="rate rate0">0</option>
+                        <option value="rate rate1">★</option>
+                        <option value="rate rate1-5">★0.5</option>
+                        <option value="rate rate2">★★</option>
+                        <option value="rate rate2-5">★★0.5</option>
+                        <option value="rate rate3">★★★</option>
+                        <option value="rate rate3-5">★★★0.5</option>
+                        <option value="rate rate4">★★★★</option>
+                        <option value="rate rate4-5">★★★★0.5</option>
+                        <option value="rate rate5">★★★★★</option>
+                        </select>
+
+                      </div>
+                      <b>ジャンル：</b>
+                      <select name="category">
+                        <% Category.all.each do |c| %>
+                          <option value="<%= c.id %>"><%= c.categoname %></option>
+                        <% end %>
+                      </select>
+
+                      <div class="form-group">
+                      <label for="input_body">当日の詳細</label>
+                      <textarea type="text" class="form-control" name="details" placeholder="
+開催イベント正式名称：
+依頼主：白山市
+会場場所：白山市役所
+時間：7時から21時まで
+対象：SDGsに対して興味のあるビジネスマン
+イベント規模：約００人
+
+服装：
+現地までの移動方法：車、新幹線
+当日にかかるお金の目安：ホテル交通費など
+" rows="10"></textarea>
+                      </div>
+                     <input type="submit" value="投稿">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  リスト:
-  <select name="category">
-    <% Category.all.each do |c| %>
-      <option value="<%= c.id %>"><%= c.categoname %></option>
-    <% end %>
-  </select>
-
-
-  <input type="submit" value="投稿">
-</form>
 </div>
-
-
-
-
 </section>
 
 <section>
-<h2>個人</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+      <div class="row">
+      <h1>Personal</h1>
+        <div class="panel panel-default">
+          <div class="panel-heading">個人アクション</div>
+            <div class="panel-body">
+              <form action="/new" method="post">
+                <div class="form-group">
+                <b>タイトル入力</b><input type="string" class="form-control" name="title2" placeholder="タイトル">
+                </div>
+                      <input type="file" name="img2"><br>
+                      <b>ジャンル：</b>
+                      <select name="category">
+                        <% Category.all.each do |c| %>
+                          <option value="<%= c.id %>"><%= c.categoname %></option>
+                        <% end %>
+                      </select>
 
-
-
-
+                      <div class="form-group">
+                      <label for="input_body">詳細</label>
+                      <textarea type="text" class="form-control" name="details2" placeholder="感想、思ったことなど！" rows="10"></textarea>
+                      </div>
+                     <input type="submit" value="投稿">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </section>

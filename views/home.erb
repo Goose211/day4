@@ -15,30 +15,30 @@
 <% if @category_name.present? %>
   <h2><%= @category_name %></h2>
 <% end %>
-
-
 </div>
+
   <div style="line-height: 0.5em">
     <% @quests.each do |t| %>
-      <div>
-        <p>依頼内容<%= t.title %></p>
-        <p>依頼主:<%= t.client %></p>
-        <p>条件:<%= t.condition %></p>
-        <p>参加者:<%= t.member %></p>
-        <p>詳細:<%= t.details %></p>
-        <p>難易度:<span class="<%= t.star %>"></span></p>
-        <p>投稿者:<%= t.user_name %></p>
-        <span><%= t.good %></span>
-        <td>
-        <% unless t.completed %>
-          <form action="/quests/<%= t.id %>/done" method="post">
-            <input type="submit" value="Done">
-          </form>
-        <% else %>
-         Done
-        <% end %>
-        </td>
-        <p><a href="/new/delete/<%= t.id%>">削除</a></p>
-      </div>
+            <div>
+              <p>依頼内容<%= t.title %></p>
+              <p>依頼主:<%= t.client %></p>
+              <p>条件:<%= t.condition %></p>
+              <p>参加者:<%= t.member %></p>
+              <p>詳細:<%= t.details %></p>
+              <p>難易度:<span class="<%= t.star %>"></span></p>
+              <p>投稿者:<%= t.user_name %></p>
+              <span><%= t.good %></span>
+                <td>
+                <% unless t.completed %>
+                  <form action="/quests/<%= t.id %>/done" method="post">
+                    <input type="submit" value="Done">
+                  </form>
+                <% else %>
+                Done
+                <% end %>
+                </td>
+              <p><a href="/new/delete/<%= t.id%>">削除</a></p>
+            </div>
     <% end %>
+
   </div>

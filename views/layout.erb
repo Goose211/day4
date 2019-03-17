@@ -17,6 +17,7 @@
 <div align="right">
 <a href="/signup">新規登録</a>
 </div>
+
 <% else %>
 
 <header class="siteHeader">
@@ -38,16 +39,17 @@
       <ul>
         <li><a href="/">ホーム</a></li>
         <li><a href="/top">クエスト</a></li>
-        <li><a href="/free">個人投稿</a></li>
-        <li><a>メンバー</a></li>
+        <li><a>個人投稿</a></li>
+
       </ul>
     </nav>
      <div class="headerButton"><span class="sb-toggle-right"></span></div>
   </div>
-</header>
 
+</header>
 <% end %>
 </nav>
+
 <main>
 <%= yield %>
 </main>

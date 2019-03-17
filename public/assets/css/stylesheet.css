@@ -1,7 +1,7 @@
 
 
 #index {
-  background-image: url("/assets/img/top5.jpg");
+  background-image: url("/assets/img/camp.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -40,7 +40,7 @@
 
 #wrap{
   clear: both;
-  background-color: #ffd3a1;
+  background-color: #F5DEB3;
   margin-top: 1px;
   opacity: 1.0;
 }
@@ -131,19 +131,20 @@ div#imgContainer img {
 
 
 .siteHeader {
-  background:  url(/assets/img/top.jpg) center top no-repeat;
+  background:  url(/assets/img/image12.jpg) center top no-repeat;
   background-size: cover;
   color: #fff;
   position: relative;
   z-index: 2;
   overflow: hidden;
+
 }
 
 .siteHeader a {
   color: #fff;
 }
 .siteHeader .headerBg {
-  background: rgba(255, 255, 255, 0);
+  background: rgba(86, 96, 233, 0.288);
 }
 .siteHeader .headerMenu {
   padding: 10px 20px 0 0;
@@ -162,12 +163,12 @@ div#imgContainer img {
   display: block;
   padding: 6px 24px 6px 26px;
   border: 1px solid #fff;
-  background: rgba(3, 131, 136, 0.2);
+  background: rgba(86, 96, 233, 0.288);
 }
 
 .siteHeader .headerMenu ul li a:hover {
   color: #fff;
-  background: rgba(3, 131, 136, 0.4);
+  background: rgba(216, 231, 9, 0.589);
 }
 .siteHeader .siteTitle {
   width: 300px;

@@ -1,8 +1,5 @@
-<h1>全ての投稿  <%= @exist %></h1>
+<h1>合計ポイント  <%= @exist %></h1>
 <h1>Done数  <%= @dones %></h1>
-<h1>プライベートdone <%= @p%></h1>
-<h1>仕事done <%= @s %></h1>
-
 
 <h3>グラフ</h3>
 <div class="chart-container" style="position: relative; height:60vh; width:30vw">
@@ -15,7 +12,7 @@ var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'horizontalBar',
     data: {
-        labels: ["全ての投稿", "Done数", "WS学外", "WS学内", "教育パッケージ", "ボードゲーム","白山都市計画","tech","ラジオ","ジーザー育成","キャンプ","イベント企画","勉強会"," ","SDGs商品紹介","ニュース","書籍紹介","英語","動画","アプリ","web","ポスター"],
+        labels: ["全ての投稿", "Done数", "WS学外", "WS学内", "教育パッケージ", "ボードゲーム","白山都市計画","tech","ラジオ","ジーザー育成","キャンプ","イベント企画","勉強会","個人","SDGs商品紹介","ニュース","書籍紹介","英語","動画","アプリ","web","ポスター"],
         datasets: [{
             label: 'ポイント数',
             data: [<%= @exist %>,
