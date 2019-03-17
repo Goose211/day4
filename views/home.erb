@@ -1,7 +1,7 @@
 
 <body>
-<h1><%= current_user.name %>さんの部屋</h1>
-<li><a href="/chart">グラフ</a></li>
+<h1>Mypage</h1>
+<a href="/chart"><%= current_user.name %>さんのグラフ</a>
 <div>
   <ul>
     <li><a href="/home">全て</a></li>
@@ -10,6 +10,7 @@
     <li><a href="/category/<%= c.id %>"><%= c.categoname %></a></li>
     <% end %>
   </ul>
+
 
 <% if @category_name.present? %>
   <h2><%= @category_name %></h2>
@@ -20,7 +21,7 @@
   <div style="line-height: 0.5em">
     <% @quests.each do |t| %>
       <div>
-        <p>活動内容:<%= t.title %></p>
+        <p>依頼内容<%= t.title %></p>
         <p>依頼主:<%= t.client %></p>
         <p>条件:<%= t.condition %></p>
         <p>参加者:<%= t.member %></p>

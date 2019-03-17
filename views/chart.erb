@@ -6,34 +6,87 @@
 
 <h3>グラフ</h3>
 <div class="chart-container" style="position: relative; height:60vh; width:30vw">
-<canvas id="myChart" width="2000" height="2000"></canvas>
+<canvas id="myChart" width="3000" height="6500"></canvas>
 </div>
  <% @quests.each do |t| %>
 <script>
 var ctx = document.getElementById("myChart").getContext('2d');
 
 var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'horizontalBar',
     data: {
-        labels: ["全ての投稿", "DOne数", "プライベート", "仕事", "Purple", "Orange","Orange","Orange","Orange","Orange","Orange","Orange","Orange","Orange","Orange",],
+        labels: ["全ての投稿", "Done数", "WS学外", "WS学内", "教育パッケージ", "ボードゲーム","白山都市計画","tech","ラジオ","ジーザー育成","キャンプ","イベント企画","勉強会"," ","SDGs商品紹介","ニュース","書籍紹介","英語","動画","アプリ","web","ポスター"],
         datasets: [{
-            label: '# of Votes',
-            data: [<%= @exist %>,<%= @dones %>,<%= @p%>,<%= @s %>,12],
+            label: 'ポイント数',
+            data: [<%= @exist %>,
+                    <%= @dones %>,
+                    <%= @ws1 %>,
+                    <%= @ws2 %>,
+                    <%= @teach %>,
+                    <%= @game %>,
+                    <%= @hukusan %>,
+                    <%= @tech%>,
+                    <%= @radio %>,
+                    <%= @giy %>,
+                    <%= @camp %>,
+                    <%= @ivent %>,
+                    <%= @study %>,
+                    0,
+                    <%= @product %>,
+                    <%= @newss %>,
+                    <%= @book %>,
+                    <%= @english %>,
+                    <%= @movie %>,
+                    <%= @app %>,
+                    <%= @web %>,
+                    <%= @poster %>],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(238, 25, 45, 1)',
+                'rgba(215,164,37,1)',
+                'rgba(39, 159, 70, 1)',
+                'rgba(199, 32, 52, 1)',
+                'rgba(242, 65, 45, 1)',
+                'rgba(0, 177, 221, 1)',
+                'rgba(255, 185, 11, 1)',
+                'rgba(146, 21, 55, 1)',
+                'rgba(246, 109, 39, 1)',
+                'rgba(229, 23, 134, 1)',
+                'rgba(252, 152, 40, 1)',
+                'rgba(211, 144, 40, 1)',
+                'rgba(69, 123, 61, 1)',
+                'rgba(0, 0, 0, 0)',
+                'rgba(0, 127, 190, 1)',
+                'rgba(57, 178, 72, 1)',
+                'rgba(6, 85, 144, 1)',
+                'rgba(26, 51, 108, 1)',
+                'rgba(238,25,25,1)',
+                'rgba(215,164,37,1)',
+                'rgba(39, 159, 70, 1)',
+                'rgba(199, 32, 52, 1)',
             ],
             borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, d159, 64, 1)'
+                'rgba(238,25,25,1)',
+                'rgba(215,164,37,1)',
+                'rgba(39, 159, 70, 1)',
+                'rgba(199, 32, 52, 1)',
+                'rgba(242, 65, 45, 1)',
+                'rgba(0, 177, 221, 1)',
+                'rgba(255, 185, 11, 1)',
+                'rgba(146, 21, 55, 1)',
+                'rgba(246, 109, 39, 1)',
+                'rgba(229, 23, 134, 1)',
+                'rgba(252, 152, 40, 1)',
+                'rgba(211, 144, 40, 1)',
+                'rgba(69, 123, 61, 1)',
+                'rgba(0, 0, 0, 0)',
+                'rgba(0, 127, 190, 1)',
+                'rgba(57, 178, 72, 1)',
+                'rgba(6, 85, 144, 1)',
+                'rgba(26, 51, 108, 1)',
+                'rgba(238,25,25,1)',
+                'rgba(215,164,37,1)',
+                'rgba(39, 159, 70, 1)',
+                'rgba(199, 32, 52, 1)',
             ],
             borderWidth: 1
         }]
@@ -41,6 +94,13 @@ var myChart = new Chart(ctx, {
     options: {
         scales: {
             yAxes: [{
+
+                display: true,             //表示設定
+                    scaleLabel: {              //軸ラベル設定
+                       display: true,          //表示設定
+                       labelString: '縦軸ラベル',  //ラベル
+                       fontSize: 30
+                       },             //フォントサイズ
                 ticks: {
                     beginAtZero:true
                 }

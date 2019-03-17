@@ -104,8 +104,27 @@ get '/chart' do
   end
    @exist = current_user.quests.count
    @dones = current_user.quests.where(good: '1').count
-   @p =  current_user.quests.where(good: '1', category_id: '1').count
-   @s = current_user.quests.where(good: '1', category_id: '2').count
+   @ws1 =  current_user.quests.where(good: '1', category_id: '1').count
+   @ws2 = current_user.quests.where(good: '1', category_id: '2').count
+   @teach =  current_user.quests.where(good: '1', category_id: '3').count
+   @game = current_user.quests.where(good: '1', category_id: '4').count
+   @hukusan = current_user.quests.where(good: '1', category_id: '5').count
+   @tech = current_user.quests.where(good: '1', category_id: '6').count
+   @radio = current_user.quests.where(good: '1', category_id: '7').count
+   @giy = current_user.quests.where(good: '1', category_id: '8').count
+   @camp = current_user.quests.where(good: '1', category_id: '9').count
+   @ivent = current_user.quests.where(good: '1', category_id: '10').count
+   @study = current_user.quests.where(good: '1', category_id: '11').count
+   @product = current_user.quests.where(good: '1', category_id: '13').count
+   @newss = current_user.quests.where(good: '1', category_id: '14').count
+   @book = current_user.quests.where(good: '1', category_id: '15').count
+   @english = current_user.quests.where(good: '1', category_id: '16').count
+   @movie = current_user.quests.where(good: '1', category_id: '17').count
+   @app = current_user.quests.where(good: '1', category_id: '18').count
+   @web = current_user.quests.where(good: '1', category_id: '19').count
+   @poster = current_user.quests.where(good: '1', category_id: '20').count
+
+
 
 
   erb :chart

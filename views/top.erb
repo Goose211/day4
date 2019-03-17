@@ -32,14 +32,19 @@ return false;
       <section class="center-vertical">
       <h1>クエスト</h1>
       <% @quests.each do |t| %>
+
       <div class="post center-vertical">
-		    <p>活動内容:<%= t.title %></p>
+      <div onclick="obj=document.getElementById('<%= t.id%>').style; obj.display=(obj.display=='none')?'block':'none';">
+	<a style="cursor:pointer;">活動内容:<%= t.title %></a>
+      </div>
+      <div id="<%= t.id%>" style="display:none;clear:both;">
         <p>依頼主:<%= t.client %></p>
         <p>条件:<%= t.condition %></p>
         <p>参加者:<%= t.member %></p>
         <p>詳細:<%= t.details %></p>
         <p>難易度:<span class="<%= t.star %>"></span></p>
         <p>投稿者:<%= t.user_name %></p>
+      </div>
       </div>
       <% end %>
       </section>
