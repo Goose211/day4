@@ -3,8 +3,8 @@
 <h1>Mypage</h1>
 <a href="/chart"><%= current_user.name %>さんのグラフ</a>
 
-<div class ="boxA">
-<div class="box1">
+<div class="flexwrap flex05">
+
   <ul>
     <li><a href="/home">全て</a></li>
     <li><a href="/quests/done">done</a></li>
@@ -17,11 +17,12 @@
 <% if @category_name.present? %>
   <h2><%= @category_name %></h2>
 <% end %>
-</div>
 
-  <div class="box2" style="line-height: 0.5em">
+
+
+  <div style="line-height: 0.5em">
     <% @quests.each do |t| %>
-            <div>
+            <div class="post center-vertical">
               <p>依頼内容<%= t.title %></p>
               <p>依頼主:<%= t.client %></p>
               <p>条件:<%= t.condition %></p>
@@ -44,4 +45,3 @@
     <% end %>
 
   </div>
-</div>

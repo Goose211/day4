@@ -4,25 +4,30 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/assets/css/stylesheet.css">
 <title>GYIポータルサイト</title>
+<style type="text/css">
+p.example1 { color: white; }
+</style>
+
 </head>
 
 <body>
+<% unless session[:user] %>
 
-<div class="box1">
-<h1>Global <br>Youth<br>Innovators</h1>
-<p>このサイトは、日々の活動を配信したり、活動を共有するサイトです！！</p>
-</div>
-
-<div class="box2">
-a
-</div>
-
-  <% unless session[:user] %>
-	  <form action="/signin" method="POST" class="form-inline" style="display:inline-flex; height: 36px;">
+<div style="position: relative;">
+<img src="/assets/img/top3.jpg" alt="topimg" width= "1425" height= "1000">
+<div style="position:absolute; top:100px; left:30px; width: 430px;" class="a">
+<h1><p class="example1">Global Youth Innovators</p></h1>
+<p class="example1">このサイトは、日々の活動を配信したり、活動を共有するサイトです！！</p>
+<form action="/signin" method="POST" class="form-inline" style="display:inline-flex; height: 36px;">
       <input name="name" placeholder="ユーザー名"><br>
       <input type="password" name="password" placeholder="パスワード"><br>
       <input type="submit" value="ログイン"><br>
     </form>
+
+</div></div>
+
+
+
 
 
     <% else %>

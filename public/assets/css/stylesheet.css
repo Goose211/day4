@@ -241,15 +241,14 @@ div#imgContainer img {
   position: absolute;
 }
 
-.boxA:after{
-  content: "";
-  display: block;
-  clear: both
-}
-
-.box1 {float: left;
-width: 50%
-}
-.box2 {float: left;
-width: 50%
-}
+ .flex06 {
+    justify-content: space-between;
+  }
+  .flex06 > div:first-child {
+    width: 70%;
+    order: 2;
+  }
+  .flex06 > div:nth-child(2) {
+    width: 25%;
+    order: 1;
+  }
