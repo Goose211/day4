@@ -2,7 +2,9 @@
 <body>
 <h1>Mypage</h1>
 <a href="/chart"><%= current_user.name %>さんのグラフ</a>
-<div>
+
+<div class ="boxA">
+<div class="box1">
   <ul>
     <li><a href="/home">全て</a></li>
     <li><a href="/quests/done">done</a></li>
@@ -17,7 +19,7 @@
 <% end %>
 </div>
 
-  <div style="line-height: 0.5em">
+  <div class="box2" style="line-height: 0.5em">
     <% @quests.each do |t| %>
             <div>
               <p>依頼内容<%= t.title %></p>
@@ -42,3 +44,4 @@
     <% end %>
 
   </div>
+</div>

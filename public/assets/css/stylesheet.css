@@ -240,3 +240,16 @@ div#imgContainer img {
   top: 0;
   position: absolute;
 }
+
+.boxA:after{
+  content: "";
+  display: block;
+  clear: both
+}
+
+.box1 {float: left;
+width: 50%
+}
+.box2 {float: left;
+width: 50%
+}
