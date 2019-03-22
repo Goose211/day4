@@ -1,26 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/assets/css/stylesheet.css">
+<title>GYIポータルサイト</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+
+<script>
+jQuery(document).ready(function() {
+var offset = 100;
+var duration = 500;
+jQuery(window).scroll(function() {
+if (jQuery(this).scrollTop() > offset) {
+jQuery('.pagetop').fadeIn(duration);
+} else {
+jQuery('.pagetop').fadeOut(duration);
+}
+});
+
+jQuery('.pagetop').click(function(event) {
+event.preventDefault();
+jQuery('html, body').animate({scrollTop: 0}, duration);
+return false;
+})
+});
+</script>
+
+</head>
 
 <body>
-<h1>Mypage</h1>
+
+
+<div class="contents">
+	<div class="grid">
+
+  <div class="grid-cell fixed">
+<h1>Mypage</h1><br>
 <a href="/chart"><%= current_user.name %>さんのグラフ</a>
-
-<div class="flexwrap flex05">
-
   <ul>
     <li><a href="/home">全て</a></li>
     <li><a href="/quests/done">done</a></li>
     <% @categories.each do |c| %>
-    <li><a href="/category/<%= c.id %>"><%= c.categoname %></a></li>
+    <li><a href="/category/<%= c.id %>"><%= c.categoname %></arti></li>
     <% end %>
   </ul>
+</div>
 
-
-<% if @category_name.present? %>
-  <h2><%= @category_name %></h2>
-<% end %>
-
-
-
-  <div style="line-height: 0.5em">
+<div class="grid-cell flexible">
+  <% if @category_name.present? %><h2><%= @category_name %></h2><% end %>
     <% @quests.each do |t| %>
             <div class="post center-vertical">
               <p>依頼内容<%= t.title %></p>
@@ -40,8 +67,15 @@
                 Done
                 <% end %>
                 </td>
-              <p><a href="/new/delete/<%= t.id%>">削除</a></p>
+              <p><a href="/new/delete/<%= t.id%>">削除</article></p>
             </div>
     <% end %>
+    </div>
 
   </div>
+</div>
+
+<div class="pagetop">↑</div>
+
+</body>
+<html>

@@ -37,7 +37,7 @@ user = User.find_by(name: params[:name])
   if user && user.authenticate(params[:password])
     session[:user] = user.id
   end
-  redirect '/'
+  redirect 'top'
 end
 
 get '/signout' do

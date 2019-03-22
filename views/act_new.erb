@@ -8,6 +8,27 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <script>
+jQuery(document).ready(function() {
+var offset = 100;
+var duration = 500;
+jQuery(window).scroll(function() {
+if (jQuery(this).scrollTop() > offset) {
+jQuery('.pagetop').fadeIn(duration);
+} else {
+jQuery('.pagetop').fadeOut(duration);
+}
+});
+
+jQuery('.pagetop').click(function(event) {
+event.preventDefault();
+jQuery('html, body').animate({scrollTop: 0}, duration);
+return false;
+})
+});
+</script>
 </head>
 
 <section>
@@ -113,3 +134,8 @@
   </div>
 </div>
 </section>
+
+<div class="pagetop">↑</div>
+
+</body>
+<html>
