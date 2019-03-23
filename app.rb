@@ -105,14 +105,16 @@ get '/chart' do
 @categories = Category.all
   if current_user.nil? then
     @quests = Quest.none
+    @chats = Chat.none
   elsif params[:category].nil? then
     @quests = current_user.quests
+     @chats = current_user.chats
   else
     @quests = Category.find(params[:category]).quests.where(user_id: current_user.id)
+    @chats = Category.find(params[:category]).chats.where(user_id: current_user.id)
   end
 
-   @exist = current_user.quests.count
-   @dones = current_user.quests.where(good: '1').count
+  #  クエスト投稿
    @ws1 =  current_user.quests.where(good: '1', category_id: '1').count
    @ws2 = current_user.quests.where(good: '1', category_id: '2').count
    @teach =  current_user.quests.where(good: '1', category_id: '3').count
@@ -124,6 +126,7 @@ get '/chart' do
    @camp = current_user.quests.where(good: '1', category_id: '9').count
    @ivent = current_user.quests.where(good: '1', category_id: '10').count
    @study = current_user.quests.where(good: '1', category_id: '11').count
+
    @product = current_user.quests.where(good: '1',category_id: '13').count
    @newss = current_user.quests.where(good: '1',category_id: '14').count
    @book = current_user.quests.where(good: '1',category_id: '15').count
@@ -132,9 +135,31 @@ get '/chart' do
    @app = current_user.quests.where(good: '1',category_id: '18').count
    @web = current_user.quests.where(good: '1',category_id: '19').count
    @poster = current_user.quests.where(good: '1',category_id: '20').count
+   @exist = current_user.quests.count
+   @dones = current_user.quests.where(good: '1').count
 
+  #  個人投稿
+   @ws11 =  current_user.chats.where(category_id: '1').count
+   @ws21 =  current_user.chats.where(category_id: '2').count
+   @teach1 =  current_user.chats.where(category_id: '3').count
+   @game1 =  current_user.chats.where(category_id: '4').count
+   @hukusan1 =  current_user.chats.where(category_id: '5').count
+   @tech1 =  current_user.chats.where(category_id: '6').count
+   @radio1 =  current_user.chats.where(category_id: '7').count
+   @giy1 =  current_user.chats.where(category_id: '8').count
+   @camp1 =  current_user.chats.where(category_id: '9').count
+   @ivent1 =  current_user.chats.where(category_id: '10').count
+   @study1 =  current_user.chats.where(category_id: '11').count
 
-
+   @product1 =  current_user.chats.where(category_id: '13').count
+   @newss1 =  current_user.chats.where(category_id: '14').count
+   @book1=  current_user.chats.where(category_id: '15').count
+   @english1 =  current_user.chats.where(category_id: '16').count
+   @movie1 =  current_user.chats.where(category_id: '17').count
+   @app1 =  current_user.chats.where(category_id: '18').count
+   @web1 =  current_user.chats.where(category_id: '19').count
+   @poster1 =  current_user.chats.where(category_id: '20').count
+  @exist1 = current_user.chats.count
 
   erb :chart
 end
@@ -172,9 +197,11 @@ get '/free' do
 end
 
 post '/new2' do
+  category = Category.find(params[:category])
   Chat.create({
     chattitle: params[:chattitle],
     chatcoment: params[:chatcoment],
+     category_id: category.id,
     user_id: current_user.id,
     user_name: current_user.name,
     img3: ""

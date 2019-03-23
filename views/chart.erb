@@ -2,7 +2,7 @@
 
 <div class="coment1">
 <div class="contents">
-<h1>活動ポイント  <%= @exist %></h1>
+<h1>活動ポイント  <%= @exist + @exist1 %></h1>
 <div class="chart-container" style="position: relative; height:60vh; width:30vw">
 <canvas id="myChart" width="600" height="1000"></canvas>
 </div>
@@ -16,27 +16,26 @@ var myChart = new Chart(ctx, {
         labels: ["WS学外", "WS学内", "教育パッケージ", "ボードゲーム","白山都市計画","tech","ラジオ","ジーザー育成","キャンプ","イベント企画","勉強会","個人","SDGs商品紹介","ニュース","書籍紹介","英語","動画","アプリ","web","ポスター","Done数" ,"全ての投稿"],
         datasets: [{
             label: 'ポイント数',
-            data: [
-                    <%= @ws1 %>,
-                    <%= @ws2 %>,
-                    <%= @teach %>,
-                    <%= @game %>,
-                    <%= @hukusan %>,
-                    <%= @tech%>,
-                    <%= @radio %>,
-                    <%= @giy %>,
-                    <%= @camp %>,
-                    <%= @ivent %>,
-                    <%= @study %>,
+            data: [ <%= @ws1 %>+<%= @ws11 %>,
+                    <%= @ws2 %>+<%= @ws21 %>,
+                    <%= @teach %>+<%= @teach1 %>,
+                    <%= @game %>+<%= @game1 %>,
+                    <%= @hukusan %>+<%= @hukusan1 %>,
+                    <%= @tech%>+<%= @tech1 %>,
+                    <%= @radio %>+<%= @radio1 %>,
+                    <%= @giy %>+<%= @giy1 %>,
+                    <%= @camp %>+<%= @camp1 %>,
+                    <%= @ivent %>+<%= @ivent1 %>,
+                    <%= @study %>+<%= @study1 %>,
                     0,
                     <%= @product %>,
-                    <%= @newss %>,
-                    <%= @book %>,
-                    <%= @english %>,
-                    <%= @movie %>,
-                    <%= @app %>,
-                    <%= @web %>,
-                    <%= @poster %>,
+                    <%= @newss %>+<%= @newss1 %>,
+                    <%= @book %>+<%= @book1 %>,
+                    <%= @english %>+<%= @english1 %>,
+                    <%= @movie %>+<%= @movie1 %>,
+                    <%= @app %>+<%= @app1 %>,
+                    <%= @web %>+<%= @web1 %>,
+                    <%= @poster %>+<%= @poster1 %>,
                     <%= @dones %>,
                     <%= @exist %>],
             backgroundColor: [

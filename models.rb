@@ -19,8 +19,10 @@ end
 
 class Category < ActiveRecord::Base
   has_many :quests
+  has_many :chats
 end
 
 class Chat < ActiveRecord::Base
   belongs_to :user
+  belongs_to :category
 end

@@ -1,12 +1,16 @@
 
 <body >
 
+<section class="center-vertical">
 <% @chats.each do |t| %>
 <div class="post center-vertical">
+<h1><%= t.chattitle %></h1>
+<figure>
 <% unless t.img3.empty? %>
 <p><img src="<%= t.img3 %>"></p>
 <% end %>
- <p><%= t.chattitle %></pp>
+</figure>
+
  <p><%= t.chatcoment %></p>
  <span>
   <form action="/chatdelete/<%= t.id %>" method="post">
@@ -15,7 +19,7 @@
  </span>
  </div>
  <% end %>
-
+</section>
 
 
 </body>
