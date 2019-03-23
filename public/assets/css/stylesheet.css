@@ -378,3 +378,10 @@ margin: 0px auto;
 padding: 30px;
 background: #FFF;
 }
+
+img {width: 100%;
+  height: auto;
+}
+figure {
+  margin: 0;
+}
