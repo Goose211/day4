@@ -4,6 +4,7 @@ require 'sinatra/reloader' if development?
 
 require 'sinatra/activerecord'
 require './models'
+require './image_uploader.rb'
 
 enable :sessions
 
@@ -172,11 +173,20 @@ end
 post '/new2' do
   Chat.create({
     chattitle: params[:chattitle],
-    img3: params[:img3],
     chatcoment: params[:chatcoment],
     user_id: current_user.id,
     user_name: current_user.name,
+    img3: ""
   })
 
+if params[:img3]
+  image_upload(params[:img3])
+end
+
 redirect '/free'
+end
+
+post '/chatdelete/:id' do
+  Chat.find(params[:id]).destroy
+  redirect 'free'
 end

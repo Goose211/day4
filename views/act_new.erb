@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -30,7 +31,6 @@ return false;
 });
 </script>
 </head>
-
 <section>
 
 <div class="container">
@@ -108,7 +108,7 @@ return false;
         <div class="panel panel-default">
           <div class="panel-heading">個人アクション</div>
             <div class="panel-body">
-              <form action="/new2" method="post">
+              <form action="/new2" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                 <b>タイトル入力</b><input type="string" class="form-control" name="chattitle" placeholder="タイトル">
                 </div>
@@ -135,12 +135,3 @@ return false;
   </div>
 </div>
 </section>
-
-<div class="pagetop">↑</div>
-
-
-<footer>
-プロジェクト
-</footer>
-</body>
-<html>

@@ -1,36 +1,21 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="/assets/css/stylesheet.css">
-<title>GYIポータルサイト</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 
-<script>
-jQuery(document).ready(function() {
-var offset = 100;
-var duration = 500;
-jQuery(window).scroll(function() {
-if (jQuery(this).scrollTop() > offset) {
-jQuery('.pagetop').fadeIn(duration);
-} else {
-jQuery('.pagetop').fadeOut(duration);
-}
-});
+<body >
 
-jQuery('.pagetop').click(function(event) {
-event.preventDefault();
-jQuery('html, body').animate({scrollTop: 0}, duration);
-return false;
-})
-});
-</script>
-
-</head>
-<body>
 <% @chats.each do |t| %>
- <p><%= t.chattitle %></p>
+<div class="post center-vertical">
+<% unless content.img.empty? %>
+<p><img src="<%= t.img3 %>"></p>
+<% end %>
+ <p><%= t.chattitle %></pp>
  <p><%= t.chatcoment %></p>
+ <span>
+  <form action="/chatdelete/<%= t.id %>" method="post">
+   <input type="submit" value="削除">
+  </form>
+ </span>
+ </div>
  <% end %>
- </body>
- </html>
+
+
+
+</body>

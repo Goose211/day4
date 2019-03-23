@@ -18,6 +18,11 @@ group :development do
 gem 'sqlite3','~> 1.3.6'
 end
 
+
+gem 'cloudinary'
+gem 'dotenv'
+
+
 group :production do
 gem 'pg' , '~>0.18'
 end

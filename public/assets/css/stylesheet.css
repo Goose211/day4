@@ -371,3 +371,10 @@ padding: 25px 20px;
   font-weight: bold;
   text-shadow: 0 0 10px #444444;
 }
+
+#container3 {
+width: 600px;
+margin: 0px auto;
+padding: 30px;
+background: #FFF;
+}

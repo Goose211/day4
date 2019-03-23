@@ -1,36 +1,5 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="/assets/css/stylesheet.css">
-<title>GYIポータルサイト</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-
-<script>
-jQuery(document).ready(function() {
-var offset = 100;
-var duration = 500;
-jQuery(window).scroll(function() {
-if (jQuery(this).scrollTop() > offset) {
-jQuery('.pagetop').fadeIn(duration);
-} else {
-jQuery('.pagetop').fadeOut(duration);
-}
-});
-
-jQuery('.pagetop').click(function(event) {
-event.preventDefault();
-jQuery('html, body').animate({scrollTop: 0}, duration);
-return false;
-})
-});
-</script>
-
-</head>
 
 <body>
-
-
 <div class="contents">
 	<div class="grid">
   <div class="grid-cell fixed">
@@ -49,6 +18,7 @@ return false;
 </div>
 
 <div class="grid-cell flexible">
+  <div class="center-vertical">
   <% if @category_name.present? %><h2><%= @category_name %></h2><% end %>
     <% @quests.each do |t| %>
             <div class="post center-vertical">
@@ -79,15 +49,7 @@ return false;
             </div>
     <% end %>
     </div>
+    </div>
 
   </div>
 </div>
-
-<div class="pagetop">↑</div>
-
-
-<footer>
-プロジェクト
-</footer>
-</body>
-<html>
