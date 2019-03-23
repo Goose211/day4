@@ -3,7 +3,7 @@
 
 <% @chats.each do |t| %>
 <div class="post center-vertical">
-<% unless content.img.empty? %>
+<% unless t.img3.empty? %>
 <p><img src="<%= t.img3 %>"></p>
 <% end %>
  <p><%= t.chattitle %></pp>

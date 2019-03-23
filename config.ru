@@ -12,5 +12,4 @@ Cloudinary.config do |config|
   config.api_secret = ENV['CLOUDINARY_API_SECRET']
 end
 
-
 run Sinatra::Application

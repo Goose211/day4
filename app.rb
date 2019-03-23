@@ -6,6 +6,7 @@ require 'sinatra/activerecord'
 require './models'
 require './image_uploader.rb'
 
+
 enable :sessions
 
 helpers do
