@@ -165,17 +165,17 @@ get '/quests/done' do
 end
 
 get '/free' do
-  @frees = Frees2.all.order("created_at desc")
+  @chats = Chat.all.order("created_at desc")
   erb :free
 end
 
 post '/new2' do
-  Frees2.create({
-    freetitle: params[:freetitle],
+  Chat.create({
+    chattitle: params[:chattitle],
     img3: params[:img3],
-    freecoment: params[:freecoment],
-    freeuser_id: current_user.id,
-    freeuser_name: current_user.name,
+    chatcoment: params[:chatcoment],
+    user_id: current_user.id,
+    user_name: current_user.name,
   })
 
 redirect '/free'

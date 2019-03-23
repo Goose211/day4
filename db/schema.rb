@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_22_192250) do
+ActiveRecord::Schema.define(version: 2019_03_23_055011) do
 
   create_table "categories", force: :cascade do |t|
     t.string "categoname"
@@ -18,12 +18,12 @@ ActiveRecord::Schema.define(version: 2019_03_22_192250) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "frees2", force: :cascade do |t|
-    t.string "freetitle"
+  create_table "chats", force: :cascade do |t|
+    t.string "chattitle"
     t.string "img3"
-    t.text "freecoment"
-    t.integer "freeuser_id"
-    t.string "freeuser_name"
+    t.text "chatcoment"
+    t.integer "user_id"
+    t.string "user_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -8,7 +8,7 @@ end
 class User < ActiveRecord::Base
   has_secure_password
   has_many :quests
-  has_many :frees2
+  has_many :chats
 
 end
 
@@ -21,6 +21,6 @@ class Category < ActiveRecord::Base
   has_many :quests
 end
 
-class Frees2 < ActiveRecord::Base
+class Chat < ActiveRecord::Base
   belongs_to :user
 end
