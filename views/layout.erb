@@ -14,9 +14,7 @@
 
 
 <% unless session[:user] %>
-<div align="right">
-<a href="/signup">新規登録</a>
-</div>
+
 
 <% else %>
 
@@ -38,7 +36,7 @@
     <nav class="mainMenu">
       <ul>
         <li><a href="/top">クエスト</a></li>
-        <li><a>個人投稿</a></li>
+        <li><a href="/free">個人投稿</a></li>
 
       </ul>
     </nav>
@@ -53,10 +51,6 @@
 <%= yield %>
 </main>
 
-
-<footer>
-プロジェクト
-</footer>
 
 
 </body>

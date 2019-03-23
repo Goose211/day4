@@ -138,7 +138,7 @@ padding: 25px 20px;
 .post {
   margin: 10px;
   padding: 30px;
-  width: 400px;
+  width: 450px;
   border-radius: 5px;
   word-break: break-all;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
@@ -272,6 +272,9 @@ padding: 25px 20px;
 }
 
 
+
+
+/* homeのレイアウト */
 .contents {
   max-width: 800px;
   margin: auto;
@@ -309,4 +312,62 @@ padding: 25px 20px;
   padding: 20px;
   /*color: #fff;*/
   text-decoration: none;
+}
+
+
+
+/* サブメニュー */
+.home ul, ol {
+  padding: 0;
+  position: relative;
+}
+
+.home ul li, ol li {
+  color: #2d8fdd;
+  border-left: solid 6px #2d8fdd;/*左側の線*/
+  background: #f1f8ff;/*背景色*/
+  margin-bottom: 3px;/*下のバーとの余白*/
+   line-height: 1.5;
+  padding: 0.5em;
+  list-style-type: none!important;/*ポチ消す*/
+}
+
+/* 削除画面 中央寄せ*/
+.coment1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+/* グラフ中央寄せ*/
+.coment2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0%;
+  padding: 400px;
+}
+
+/* トップページ */
+
+
+.GYI{
+  color: #ffffff;
+  background-size: cover;
+  background-position:center;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.GYI h1 {
+  font-size: 86px;
+  font-family: 'Exo 2' , sans-serif;
+  text-shadow: 0 0 10px #444444;
+  text-align: center;
+}
+.GYI p {
+  font-weight: bold;
+  text-shadow: 0 0 10px #444444;
 }

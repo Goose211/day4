@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_17_101423) do
+ActiveRecord::Schema.define(version: 2019_03_22_192250) do
 
   create_table "categories", force: :cascade do |t|
     t.string "categoname"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "frees2", force: :cascade do |t|
+    t.string "freetitle"
+    t.string "img3"
+    t.text "freecoment"
+    t.integer "freeuser_id"
+    t.string "freeuser_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

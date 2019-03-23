@@ -1,10 +1,10 @@
-<h1>合計ポイント  <%= @exist %></h1>
-<h1>Done数  <%= @dones %></h1>
 
 
-<h3>グラフ</h3>
+<div class="coment1">
+<div class="contents">
+<h1>活動ポイント  <%= @exist %></h1>
 <div class="chart-container" style="position: relative; height:60vh; width:30vw">
-<canvas id="myChart" width="300" height="400"></canvas>
+<canvas id="myChart" width="600" height="1000"></canvas>
 </div>
  <% @quests.each do |t| %>
 <script>
@@ -13,11 +13,10 @@ var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'horizontalBar',
     data: {
-        labels: ["全ての投稿", "Done数", "WS学外", "WS学内", "教育パッケージ", "ボードゲーム","白山都市計画","tech","ラジオ","ジーザー育成","キャンプ","イベント企画","勉強会","個人","SDGs商品紹介","ニュース","書籍紹介","英語","動画","アプリ","web","ポスター"],
+        labels: ["WS学外", "WS学内", "教育パッケージ", "ボードゲーム","白山都市計画","tech","ラジオ","ジーザー育成","キャンプ","イベント企画","勉強会","個人","SDGs商品紹介","ニュース","書籍紹介","英語","動画","アプリ","web","ポスター","Done数" ,"全ての投稿"],
         datasets: [{
             label: 'ポイント数',
-            data: [<%= @exist %>,
-                    <%= @dones %>,
+            data: [
                     <%= @ws1 %>,
                     <%= @ws2 %>,
                     <%= @teach %>,
@@ -37,7 +36,9 @@ var myChart = new Chart(ctx, {
                     <%= @movie %>,
                     <%= @app %>,
                     <%= @web %>,
-                    <%= @poster %>],
+                    <%= @poster %>,
+                    <%= @dones %>,
+                    <%= @exist %>],
             backgroundColor: [
                 'rgba(238, 25, 45, 1)',
                 'rgba(215,164,37,1)',
@@ -108,4 +109,5 @@ var myChart = new Chart(ctx, {
 });
 </script>
 <% end %>
+</div>
 </div>

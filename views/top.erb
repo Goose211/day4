@@ -30,27 +30,30 @@ return false;
 <body>
 
       <section class="center-vertical">
+
       <h1>クエスト</h1>
       <% @quests.each do |t| %>
       <div class="post center-vertical">
       <div onclick="obj=document.getElementById('<%= t.id%>').style; obj.display=(obj.display=='none')?'block':'none';">
 	<a style="cursor:pointer;"><h2><%= t.title %></h2></a>
       <p>難易度:<span class="<%= t.star %>"></span></p>
-      日程：<%= t.day %>
+      日程：<%= t.day %> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;詳細
+      <hr color="blue">
       </div>
 
       <div id="<%= t.id%>" style="display:none;clear:both;">
-
+      <p> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
         <p>内容:<%= t.condition %></p>
         <p>詳細:<%= t.details %></p>
-
       </div>
       </div>
       <% end %>
       </section>
 
+      <div class="pagetop">↑</div>
 
-<div class="pagetop">↑</div>
-
+<footer>
+プロジェクト
+</footer>
 </body>
 <html>

@@ -108,12 +108,13 @@ return false;
         <div class="panel panel-default">
           <div class="panel-heading">個人アクション</div>
             <div class="panel-body">
-              <form action="/new" method="post">
+              <form action="/new2" method="post">
                 <div class="form-group">
-                <b>タイトル入力</b><input type="string" class="form-control" name="title2" placeholder="タイトル">
+                <b>タイトル入力</b><input type="string" class="form-control" name="freetitle" placeholder="タイトル">
                 </div>
-                      <input type="file" name="img2"><br>
+                      <input type="file" name="img3"><br>
                       <b>ジャンル：</b>
+
                       <select name="category">
                         <% Category.all.each do |c| %>
                           <option value="<%= c.id %>"><%= c.categoname %></option>
@@ -122,7 +123,7 @@ return false;
 
                       <div class="form-group">
                       <label for="input_body">詳細</label>
-                      <textarea type="text" class="form-control" name="details2" placeholder="感想、思ったことなど！" rows="10"></textarea>
+                      <textarea type="text" class="form-control" name="freecoment" placeholder="感想、思ったことなど！" rows="10"></textarea>
                       </div>
                      <input type="submit" value="投稿">
               </form>
@@ -137,5 +138,9 @@ return false;
 
 <div class="pagetop">↑</div>
 
+
+<footer>
+プロジェクト
+</footer>
 </body>
 <html>

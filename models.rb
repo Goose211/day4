@@ -8,7 +8,7 @@ end
 class User < ActiveRecord::Base
   has_secure_password
   has_many :quests
-
+  has_many :frees2
 
 end
 
@@ -19,4 +19,8 @@ end
 
 class Category < ActiveRecord::Base
   has_many :quests
+end
+
+class Frees2 < ActiveRecord::Base
+  belongs_to :user
 end

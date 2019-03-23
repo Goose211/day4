@@ -33,30 +33,37 @@ return false;
 
 <div class="contents">
 	<div class="grid">
-
   <div class="grid-cell fixed">
-<h1>Mypage</h1><br>
+<h1>Mypage</h1>
+<br>
 <a href="/chart"><%= current_user.name %>さんのグラフ</a>
-  <ul>
+<div class="home">
+  <ol>
     <li><a href="/home">全て</a></li>
     <li><a href="/quests/done">done</a></li>
     <% @categories.each do |c| %>
-    <li><a href="/category/<%= c.id %>"><%= c.categoname %></arti></li>
+    <li><a href="/category/<%= c.id %>"><%= c.categoname %></li>
     <% end %>
-  </ul>
+  </ol>
+  </div>
 </div>
 
 <div class="grid-cell flexible">
   <% if @category_name.present? %><h2><%= @category_name %></h2><% end %>
     <% @quests.each do |t| %>
             <div class="post center-vertical">
-              <p>依頼内容<%= t.title %></p>
-              <p>依頼主:<%= t.client %></p>
-              <p>条件:<%= t.condition %></p>
-              <p>参加者:<%= t.member %></p>
-              <p>詳細:<%= t.details %></p>
+            <div onclick="obj=document.getElementById('<%= t.id%>').style; obj.display=(obj.display=='none')?'block':'none';">
+              <a style="cursor:pointer;"><h2><p><%= t.title %></p></h2></a>
+
+              <p>日程：<%= t.day %>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
+
+            </div>
+            <div id="<%= t.id%>" style="display:none;clear:both;">
+            <p> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
               <p>難易度:<span class="<%= t.star %>"></span></p>
-              <p>投稿者:<%= t.user_name %></p>
+              <p>条件:<%= t.condition %></p>
+              <p>詳細:<%= t.details %></p>
+
               <span><%= t.good %></span>
                 <td>
                 <% unless t.completed %>
@@ -68,6 +75,7 @@ return false;
                 <% end %>
                 </td>
               <p><a href="/new/delete/<%= t.id%>">削除</article></p>
+              </div>
             </div>
     <% end %>
     </div>
@@ -77,5 +85,9 @@ return false;
 
 <div class="pagetop">↑</div>
 
+
+<footer>
+プロジェクト
+</footer>
 </body>
 <html>

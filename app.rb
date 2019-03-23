@@ -29,7 +29,7 @@ if @user.persisted?
   session[:user] = @user.id
 end
 
-redirect '/'
+redirect 'home'
 end
 
 post '/signin' do
@@ -56,6 +56,7 @@ get '/home' do
   @categories = Category.all
   if current_user.nil? then
     @quests = Quest.none
+
   elsif params[:category].nil? then
     @quests = current_user.quests
   else
@@ -107,6 +108,7 @@ get '/chart' do
   else
     @quests = Category.find(params[:category]).quests.where(user_id: current_user.id)
   end
+
    @exist = current_user.quests.count
    @dones = current_user.quests.where(good: '1').count
    @ws1 =  current_user.quests.where(good: '1', category_id: '1').count
@@ -160,4 +162,21 @@ get '/quests/done' do
   @categories = Category.all
   @quests = current_user.quests.where(completed: true)
   erb :home
+end
+
+get '/free' do
+  @frees = Frees2.all.order("created_at desc")
+  erb :free
+end
+
+post '/new2' do
+  Frees2.create({
+    freetitle: params[:freetitle],
+    img3: params[:img3],
+    freecoment: params[:freecoment],
+    freeuser_id: current_user.id,
+    freeuser_name: current_user.name,
+  })
+
+redirect '/free'
 end
