@@ -9,8 +9,6 @@ Category.create([
   {categoname: "ジーザ-育成"},
   {categoname: "キャンプ"},
   {categoname: "イベント企画"},
-  {categoname: "勉強会"},
-  {categoname: "&nbsp;"},
   {categoname: "エシカル商品"},
   {categoname: "ニュース"},
   {categoname: "書籍"},

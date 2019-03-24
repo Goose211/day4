@@ -1,9 +1,19 @@
 
-
-<div class="coment1">
 <div class="contents">
-<h1>活動ポイント  <%= @exist + @exist1 %></h1>
+	<div class="grid">
+  <div class="grid-cell fixed">
+<h1>Mypage</h1>
+<br>
+<h3><a href="/home2">個人投稿一覧へ</a></h3>
+<br>
+<h3><a href="/home">クエスト一覧へ</a></h3>
+<br>
+</div>
+<%# <div class="coment1"> %>
+<%# <div class="contents"> %>
+
 <div class="chart-container" style="position: relative; height:60vh; width:30vw">
+<h1>活動ポイント  <%= @exist + @exist1 %> </h1>
 <canvas id="myChart" width="600" height="1000"></canvas>
 </div>
  <% @quests.each do |t| %>
@@ -13,7 +23,7 @@ var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'horizontalBar',
     data: {
-        labels: ["WS学外", "WS学内", "教育パッケージ", "ボードゲーム","白山都市計画","tech","ラジオ","ジーザー育成","キャンプ","イベント企画","勉強会","個人","SDGs商品紹介","ニュース","書籍紹介","英語","動画","アプリ","web","ポスター","Done数" ,"全ての投稿"],
+        labels: ["WS学外", "WS学内", "教育パッケージ", "ボードゲーム","白山都市計画","tech","ラジオ","ジーザー育成","キャンプ","イベント企画","勉強会","SDGs商品紹介","ニュース","書籍紹介","英語","動画","アプリ","web","ポスター","Done数" ,"全ての投稿"],
         datasets: [{
             label: 'ポイント数',
             data: [ <%= @ws1 %>+<%= @ws11 %>,
@@ -27,17 +37,16 @@ var myChart = new Chart(ctx, {
                     <%= @camp %>+<%= @camp1 %>,
                     <%= @ivent %>+<%= @ivent1 %>,
                     <%= @study %>+<%= @study1 %>,
-                    0,
-                    <%= @product %>,
+                    <%= @product %><%= @product1 %>,
                     <%= @newss %>+<%= @newss1 %>,
-                    <%= @book %>+<%= @book1 %>,
-                    <%= @english %>+<%= @english1 %>,
-                    <%= @movie %>+<%= @movie1 %>,
-                    <%= @app %>+<%= @app1 %>,
-                    <%= @web %>+<%= @web1 %>,
-                    <%= @poster %>+<%= @poster1 %>,
+                    <%= @book + @book1 %>,
+                    <%= @english + @english1 %>,
+                    <%= @movie + @movie1 %>,
+                    <%= @app +@app1 %>,
+                    <%= @web + @web1 %>,
+                    <%= @poster + @poster1 %>,
                     <%= @dones %>,
-                    <%= @exist %>],
+                    <%= @exist + @exist1 %>],
             backgroundColor: [
                 'rgba(238, 25, 45, 1)',
                 'rgba(215,164,37,1)',
@@ -52,7 +61,6 @@ var myChart = new Chart(ctx, {
                 'rgba(252, 152, 40, 1)',
                 'rgba(211, 144, 40, 1)',
                 'rgba(69, 123, 61, 1)',
-                'rgba(0, 0, 0, 0)',
                 'rgba(0, 127, 190, 1)',
                 'rgba(57, 178, 72, 1)',
                 'rgba(6, 85, 144, 1)',
@@ -76,7 +84,6 @@ var myChart = new Chart(ctx, {
                 'rgba(252, 152, 40, 1)',
                 'rgba(211, 144, 40, 1)',
                 'rgba(69, 123, 61, 1)',
-                'rgba(0, 0, 0, 0)',
                 'rgba(0, 127, 190, 1)',
                 'rgba(57, 178, 72, 1)',
                 'rgba(6, 85, 144, 1)',
@@ -108,5 +115,8 @@ var myChart = new Chart(ctx, {
 });
 </script>
 <% end %>
+
+<%# </div> %>
+<%# </div> %>
 </div>
 </div>

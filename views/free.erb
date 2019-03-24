@@ -2,6 +2,7 @@
 <body >
 
 <section class="center-vertical">
+ <h1>個人投稿</h1>
 <% @chats.each do |t| %>
 <div class="post center-vertical">
 <h1><%= t.chattitle %></h1>
@@ -12,11 +13,7 @@
 </figure>
 
  <p><%= t.chatcoment %></p>
- <span>
-  <form action="/chatdelete/<%= t.id %>" method="post">
-   <input type="submit" value="削除">
-  </form>
- </span>
+
  </div>
  <% end %>
 </section>

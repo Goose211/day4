@@ -55,6 +55,7 @@ end
 
 #homeにいく。
 get '/home' do
+
   @categories = Category.all
   if current_user.nil? then
     @quests = Quest.none
@@ -65,6 +66,20 @@ get '/home' do
     @quests = Category.find(params[:category]).quests.where(user_id: current_user.id)
   end
   erb :home
+end
+
+get '/home2' do
+
+  @categories = Category.all
+  if current_user.nil? then
+    @chats = Quest.none
+
+  elsif params[:category].nil? then
+    @chats = current_user.chats
+  else
+    @chats = Category.find(params[:category]).chats.where(user_id: current_user.id)
+  end
+  erb :home2
 end
 
 #投稿のフォームにいく。
@@ -127,14 +142,14 @@ get '/chart' do
    @ivent = current_user.quests.where(good: '1', category_id: '10').count
    @study = current_user.quests.where(good: '1', category_id: '11').count
 
-   @product = current_user.quests.where(good: '1',category_id: '13').count
-   @newss = current_user.quests.where(good: '1',category_id: '14').count
-   @book = current_user.quests.where(good: '1',category_id: '15').count
-   @english = current_user.quests.where(good: '1',category_id: '16').count
-   @movie = current_user.quests.where(good: '1',category_id: '17').count
-   @app = current_user.quests.where(good: '1',category_id: '18').count
-   @web = current_user.quests.where(good: '1',category_id: '19').count
-   @poster = current_user.quests.where(good: '1',category_id: '20').count
+   @product = current_user.quests.where(good: '1',category_id: '12').count
+   @newss = current_user.quests.where(good: '1',category_id: '13').count
+   @book = current_user.quests.where(good: '1',category_id: '14').count
+   @english = current_user.quests.where(good: '1',category_id: '15').count
+   @movie = current_user.quests.where(good: '1',category_id: '16').count
+   @app = current_user.quests.where(good: '1',category_id: '17').count
+   @web = current_user.quests.where(good: '1',category_id: '18').count
+   @poster = current_user.quests.where(good: '1',category_id: '19').count
    @exist = current_user.quests.count
    @dones = current_user.quests.where(good: '1').count
 
@@ -151,15 +166,15 @@ get '/chart' do
    @ivent1 =  current_user.chats.where(category_id: '10').count
    @study1 =  current_user.chats.where(category_id: '11').count
 
-   @product1 =  current_user.chats.where(category_id: '13').count
-   @newss1 =  current_user.chats.where(category_id: '14').count
-   @book1=  current_user.chats.where(category_id: '15').count
-   @english1 =  current_user.chats.where(category_id: '16').count
-   @movie1 =  current_user.chats.where(category_id: '17').count
-   @app1 =  current_user.chats.where(category_id: '18').count
-   @web1 =  current_user.chats.where(category_id: '19').count
-   @poster1 =  current_user.chats.where(category_id: '20').count
-  @exist1 = current_user.chats.count
+   @product1 =  current_user.chats.where(category_id: '12').count
+   @newss1 =  current_user.chats.where(category_id: '13').count
+   @book1=  current_user.chats.where(category_id: '14').count
+   @english1 =  current_user.chats.where(category_id: '15').count
+   @movie1 =  current_user.chats.where(category_id: '16').count
+   @app1 =  current_user.chats.where(category_id: '17').count
+   @web1 =  current_user.chats.where(category_id: '18').count
+   @poster1 =  current_user.chats.where(category_id: '19').count
+   @exist1 = current_user.chats.count
 
   erb :chart
 end
@@ -184,6 +199,15 @@ get '/category/:id' do #カテゴリーごとに表示するget
   @quests = @category.quests
   erb :home
 end
+
+get '/category2/:id' do #カテゴリーごとに表示するget
+  @categories = Category.all
+  @category = Category.find(params[:id])
+  @category_name = @category.categoname
+  @chats = @category.chats
+  erb :home2
+end
+
 
 get '/quests/done' do
   @categories = Category.all
@@ -216,5 +240,5 @@ end
 
 post '/chatdelete/:id' do
   Chat.find(params[:id]).destroy
-  redirect 'free'
+  redirect 'home2'
 end
